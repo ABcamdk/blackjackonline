@@ -1,0 +1,30 @@
+{
+    "name": "blackjack-lan-server",
+    "version": "1.0.0",
+    "description": "Multiplayer Blackjack game server for local network play",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Dit Navn Her",
+    "license": "ISC",
+    "keywords": [
+        "blackjack",
+        "multiplayer",
+        "socket.io",
+        "node",
+        "lan"
+    ],
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "socket.io": "^4.7.5"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "devDependencies": {
+        "http-server": "^14.1.1"
+    }
+}
