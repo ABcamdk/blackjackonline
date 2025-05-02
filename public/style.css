@@ -1,0 +1,334 @@
+/* ----- Globale Indstillinger & CSS Variabler (Casino Tema) ----- */
+:root {
+    --dark-bg: #1a1a1a;         /* Meget mørk grå/sort baggrund */
+    --card-table-green: #0a4f22; /* Klassisk mørkegrøn filt */
+    --gold-accent: #d4af37;      /* Guld til accenter og highlights */
+    --gold-hover: #e6c45e;
+    --light-text: #f0f0f0;       /* Lys tekst til mørk baggrund */
+    --medium-gray: #444;         /* Mørkere grå til grænser/info */
+    --dark-gray: #2b2b2b;         /* Endnu mørkere til visse elementer */
+    --danger-color: #e74c3c;      /* Lidt afdæmpet rød */
+    --success-color: #2ecc71;     /* Klar grøn */
+    --warning-color: #f39c12;     /* Orange/gul */
+    --border-radius: 0.3rem;      /* Lidt skarpere kanter */
+    --box-shadow-subtle: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --box-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    --font-serif: "Georgia", "Times New Roman", serif; /* Luksuriøs serif */
+    --font-sans-serif: "Lato", "Helvetica Neue", Arial, sans-serif; /* Ren sans-serif til UI */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ----- Fjernelse af den overordnede kasse ----- */
+/* #game-area vil nu kun styre indholdet, ikke have egen baggrund/boks */
+#game-area {
+    width: 100%;
+    max-width: 900px; /* Lidt bredere max */
+    padding: 0; /* Ingen ekstra padding herfra */
+    margin-bottom: 2rem;
+    background: none; /* Ingen baggrund */
+    box-shadow: none; /* Ingen skygge */
+    border-radius: 0;
+    display: block; /* Sørg for den vises */
+    opacity: 1; /* Sørg for den er synlig */
+}
+
+/* ----- Connection Area (Stadig i en boks) ----- */
+#connection-area {
+    background-color: var(--dark-gray);
+    border: 1px solid var(--medium-gray);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-subtle);
+    width: 100%;
+    max-width: 500px; /* Mindre boks til login */
+    color: var(--light-text);
+}
+#connection-area h2 {
+    color: var(--gold-accent);
+    text-align: center;
+    font-family: var(--font-serif);
+    font-weight: normal;
+}
+
+/* ----- Overskrifter (Generelt i Spil) ----- */
+h1 {
+    text-align: center;
+    color: var(--gold-accent);
+    margin-bottom: 2.5rem;
+    font-family: var(--font-serif); /* Serif for hovedtitel */
+    font-size: 2.8rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+h3 { /* Dealer/Spillere overskrifter */
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-text);
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+h4 { /* Spillernavne */
+     color: var(--light-text);
+     font-weight: 700; /* Federe navne */
+     margin-bottom: 0.8rem;
+     font-size: 1.1rem;
+}
+
+/* ----- Formular Elementer (Connection Area) ----- */
+.input-group label {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #ccc; /* Lysere grå */
+    margin-bottom: 0.3rem;
+}
+
+.input-group input[type="text"] {
+    background-color: var(--dark-bg); /* Matcher body baggrund */
+    border: 1px solid var(--medium-gray);
+    color: var(--light-text);
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.input-group input[type="text"]:focus {
+    background-color: var(--dark-bg);
+    border-color: var(--gold-accent);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.3); /* Guld focus glow */
+    color: var(--light-text);
+}
+
+/* ----- Knapper (Premium Look) ----- */
+button {
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--dark-bg); /* Mørk tekst på lys knap */
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--gold-accent);
+    border: 1px solid var(--gold-accent);
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color .2s ease-in-out, border-color .2s ease-in-out, transform 0.1s ease;
+    margin-right: 0.75rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: var(--gold-hover);
+    border-color: var(--gold-hover);
+    color: var(--dark-bg);
+    transform: translateY(-1px); /* Let løft ved hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.4); /* Guld focus glow */
+}
+
+button:active {
+     transform: translateY(0px); /* Tilbage til normal ved klik */
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+button:disabled {
+    background-color: var(--medium-gray);
+    border-color: var(--medium-gray);
+    color: #aaa;
+    opacity: 0.7;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+    transform: none;
+}
+
+#action-buttons {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--medium-gray);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrér knapper */
+}
+
+/* Specifikke knap farver (kan evt. fjernes for ensartet guld) */
+#start-button { background-color: var(--success-color); border-color: var(--success-color); color: #fff; }
+#start-button:hover { background-color: #25a25a; border-color: #25a25a; }
+
+#hit-button { background-color: var(--warning-color); border-color: var(--warning-color); color: #fff; }
+#hit-button:hover { background-color: #d0830f; border-color: #d0830f; }
+
+#stand-button { background-color: var(--secondary-color); border-color: var(--secondary-color); color: #fff; }
+#stand-button:hover { background-color: #5a6268; border-color: #5a6268; }
+
+
+/* ----- Spil Områder (Dealer & Spillere på "filt") ----- */
+#dealer-area, .player-container {
+    border: none; /* Fjern ydre kant */
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    background-color: var(--card-table-green); /* Filt baggrund */
+    box-shadow: var(--box-shadow-inset), var(--box-shadow-subtle); /* Indre og ydre skygge */
+    position: relative; /* Til evt. pseudo-elementer */
+}
+
+.player-container.current-turn {
+    /* Fremhæv med en guld kant */
+    outline: 2px solid var(--gold-accent);
+    outline-offset: -2px; /* Indenfor padding */
+    box-shadow: var(--box-shadow-inset), var(--box-shadow-subtle), 0 0 15px rgba(212, 175, 55, 0.4); /* Tilføj glow */
+}
+
+.player-container.my-player h4 {
+    color: var(--gold-accent); /* Fremhæv mit navn med guld */
+}
+
+/* ----- Kort Styling (Premium) ----- */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 75px; /* Lidt højere for større kort */
+    margin-bottom: 1rem;
+    padding: 8px 0;
+    justify-content: center; /* Centrér kortene i containeren */
+}
+
+.card {
+    border: 1px solid #555; /* Mørk kant */
+    border-radius: var(--border-radius);
+    padding: 1rem 0.8rem;
+    min-width: 60px;
+    text-align: center;
+    background-color: #fff; /* Klassisk hvidt kort */
+    color: var(--text-color); /* Sort tekst på kort */
+    font-size: 1.7rem;
+    font-weight: 700;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3); /* Tydeligere skygge */
+    position: relative;
+    user-select: none;
+    line-height: 1.2;
+    transition: transform 0.2s ease; /* Tilføj hover effekt */
+}
+
+.card:hover {
+    transform: translateY(-3px) scale(1.03); /* Løft og skaler lidt ved hover */
+    z-index: 10; /* Sørg for det er øverst */
+}
+
+/* Skjult kort (premium) */
+.card.hidden-card {
+    background-color: #5a2d2d; /* Mørkerød baggrund */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%238a4b4b" fill-opacity="0.4"%3E%3Cpath d="M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l-2.83-2.83 1.41-1.41L20 15.78l1.41-1.41 1.41 1.41L21.41 17.2l2.83 2.83-1.41 1.41L21.41 20l-1.41 1.41-1.41-1.41L20 18.6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    border: 1px solid #401a1a;
+    box-shadow: var(--box-shadow-inset), 1px 1px 3px rgba(0,0,0,0.4);
+}
+.card.hidden-card::before {
+    /* Intet spørgsmålstegn, bare mønster */
+    content: '';
+}
+
+/* Kort kulør farver */
+.suit-♥, .suit-♦ { color: var(--danger-color); } /* Brug den lidt afdæmpede rød */
+.suit-♠, .suit-♣ { color: var(--text-color); } /* Sort */
+
+/* ----- Info og Status (VIP) ----- */
+.info {
+    font-size: 1rem;
+    color: #ccc; /* Lys grå til info tekst */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrér info under kort */
+    gap: 1rem;
+    margin-top: 0.5rem; /* Lidt plads over info */
+}
+
+.player-status {
+    font-weight: 700; /* Fed status */
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--border-radius); /* Matcher andre kanter */
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Meget diskret kant */
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    background-color: rgba(0, 0, 0, 0.2); /* Mørk, let gennemsigtig baggrund */
+    color: var(--light-text); /* Lys tekst ovenpå */
+    box-shadow: var(--box-shadow-inset);
+}
+
+/* Status farver - brug guld/rød/grøn for klare resultater */
+.status-busted, .status-lost { background-color: var(--danger-color); color: #fff; border: none; }
+.status-won { background-color: var(--success-color); color: #fff; border: none; }
+.status-push, .status-stand, .status-waiting { background-color: rgba(255, 255, 255, 0.1); color: #ccc; border: 1px solid rgba(255, 255, 255, 0.1); }
+.status-blackjack { background-color: var(--gold-accent); color: var(--dark-bg); border: none; font-weight: bold; }
+.status-playing { background-color: rgba(255, 255, 255, 0.2); color: var(--light-text); border: 1px solid rgba(255, 255, 255, 0.2); }
+
+/* ----- Spil Besked & Fejl (VIP) ----- */
+#game-message {
+    font-weight: 600; /* Lidt federe */
+    padding: 1rem 1.5rem;
+    margin: 1.5rem auto; /* Centrér og giv luft */
+    background-color: rgba(0, 0, 0, 0.3); /* Mørk gennemsigtig */
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--medium-gray);
+    font-size: 1.1rem;
+    color: var(--light-text);
+    max-width: 700px; /* Max bredde for beskeden */
+    box-shadow: var(--box-shadow-subtle);
+}
+
+.error-message {
+    color: #fff; /* Hvid tekst på rød baggrund */
+    font-weight: 500;
+    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--danger-color);
+    border: 1px solid darken(var(--danger-color), 10%); /* Mørkere kant */
+    border-radius: var(--border-radius);
+    width: 100%;
+    text-align: center; /* Centrér fejltekst */
+    box-shadow: var(--box-shadow-subtle);
+}
+#join-error:empty, #game-error:empty {
+   display: none;
+}
+#join-error, #game-error {
+   min-height: 1.5em;
+   margin-bottom: 1rem;
+}
