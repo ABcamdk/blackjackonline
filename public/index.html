@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Multiplayer Blackjack</h1>
+
+    <div id="connection-area">
+        <h2>Forbindelse</h2>
+        <div id="connection-status">Status: Ikke forbundet</div>
+        <div class="input-group">
+            <label for="room-id">Rum ID:</label>
+            <input type="text" id="room-id" placeholder="Indtast rum ID">
+        </div>
+        <div class="input-group">
+            <label for="player-name">Dit Navn:</label>
+            <input type="text" id="player-name" placeholder="Indtast navn (valgfrit)">
+        </div>
+        <button id="join-button">Deltag i Rum</button>
+        <div id="join-error" class="error-message"></div>
+    </div>
+
+    <div id="game-area" style="display: none;">
+        <h2 id="room-display">Rum: </h2>
+        <div id="game-message">Venter på spillere...</div>
+        <div id="game-error" class="error-message"></div>
+
+        <div id="dealer-area" class="player-area">
+            <h3>Dealer</h3>
+            <div class="cards" id="dealer-cards">
+                <!-- Dealer kort vises her -->
+            </div>
+            <div class="info">Værdi: <span id="dealer-value">?</span></div>
+        </div>
+
+        <div id="players-area">
+            <h3>Spillere</h3>
+            <!-- Spilleres info vises her -->
+        </div>
+
+        <div id="action-buttons">
+            <button id="start-button" disabled>Start Spil</button>
+            <button id="hit-button" disabled>Hit (Tag Kort)</button>
+            <button id="stand-button" disabled>Stand (Stå)</button>
+        </div>
+    </div>
+
+    <!-- Socket.IO Client Bibliotek (Husk at hoste det selv eller bruge CDN) -->
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
